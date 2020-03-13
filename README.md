@@ -1,11 +1,3 @@
-### Java Spring template project
+### Logiciel de gestion de produits bancaires
 
-This project is based on a GitLab [Project Template](https://docs.gitlab.com/ee/gitlab-basics/create-project.html).
-
-Improvements can be proposed in the [original project](https://gitlab.com/gitlab-org/project-templates/spring).
-
-### CI/CD with Auto DevOps
-
-This template is compatible with [Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/).
-
-If Auto DevOps is not already enabled for this project, you can [turn it on](https://docs.gitlab.com/ee/topics/autodevops/#enabling-auto-devops) in the project settings.
+Voir [Exigences](https://github.com/ace-lectures/H20-MGL-7460/blob/master/projets/projet-technique.md#travail-%C3%A0-effectuer "Projet Technique MGL7460-90 (Hiver 2020)")
