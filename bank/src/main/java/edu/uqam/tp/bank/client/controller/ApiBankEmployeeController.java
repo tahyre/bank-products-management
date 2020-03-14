@@ -4,6 +4,7 @@ package edu.uqam.tp.bank.client.controller;
 *  Rest API pour les fonctions de Employee
 */
 
+import edu.uqam.tp.bank.client.service.ApiBankEmployeeService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
