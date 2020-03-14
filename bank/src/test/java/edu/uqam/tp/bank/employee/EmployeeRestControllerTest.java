@@ -28,14 +28,16 @@ public class EmployeeRestControllerTest {
     private TestRestTemplate restTemplate;
 
      /**
-     *  Ici on test que on ajout un client a la Bank en utilisant la methode POST
+     *  Ici on test que on ajout un client a la Bank en utilisant la methode PUT
      */
     @Test
     public void testPutClientByName() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        String clientName = "Jhon Listing";
 
-        ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/api/bank/employee/add-client/{name}",
+
+        ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/api/bank/employee/add-client/" + clientName ,
                 HttpMethod.PUT, entity, String.class);
 
         Assertions.assertNotNull(response.getBody());
@@ -43,14 +45,15 @@ public class EmployeeRestControllerTest {
     }
 
     /**
-     *  Ici on test que on ajout un client a la Bank en utilisant la methode POST
+     *  Ici on test que on demande la liste des produits d'un client a la Bank en utilisant la methode GET
      */
     @Test
     public void testGetClientProducts() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        String clientName = "Jhon Listing";
 
-        ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/api/bank/employee/list-client-products/{name}",
+        ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/api/bank/employee/list-client-products/" + clientName ,
                 HttpMethod.GET, entity, String.class);
 
         Assertions.assertNotNull(response.getBody());
