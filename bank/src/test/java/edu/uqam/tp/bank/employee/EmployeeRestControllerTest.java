@@ -27,20 +27,35 @@ public class EmployeeRestControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    /**
-     *  Ici on test que on prends tous les clients de la BD en utilisant la methode GET    
+     /**
+     *  Ici on test que on ajout un client a la Bank en utilisant la methode POST
      */
     @Test
-    public void testGetAllClients() {
+    public void testPutClientByName() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 
-        ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/bank/api/employee/clients",
-                HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/api/bank/employee/add-client/{name}",
+                HttpMethod.PUT, entity, String.class);
 
-        // assert
         Assertions.assertNotNull(response.getBody());
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
     }
+
+    /**
+     *  Ici on test que on ajout un client a la Bank en utilisant la methode POST
+     */
+    @Test
+    public void testGetClientProducts() {
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+
+        ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/api/bank/employee/list-client-products/{name}",
+                HttpMethod.GET, entity, String.class);
+
+        Assertions.assertNotNull(response.getBody());
+        Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
+    }
+
 
 }
