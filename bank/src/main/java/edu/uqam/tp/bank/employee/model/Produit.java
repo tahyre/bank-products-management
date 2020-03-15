@@ -1,13 +1,23 @@
-package edu.uqam.tp.bank.client.model;
+package edu.uqam.tp.bank.employee.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="produits")
+@Access(value= AccessType.FIELD)
 public class Produit {
 
+    @Id
+    @Column(name = "PRODUCT_ID", unique = true, nullable = false, columnDefinition="varchar2(40)")
     private String idProduit;
-    private String description;
 
-    public Produit(String idProduit, String description) {
+    private String description;
+    private Boolean isAutomatique;
+
+    public Produit(String idProduit, String description, Boolean isAutomatique) {
         this.idProduit = idProduit;
         this.description = description;
+        this.isAutomatique = isAutomatique;
     }
 
     public String getIdProduit() {

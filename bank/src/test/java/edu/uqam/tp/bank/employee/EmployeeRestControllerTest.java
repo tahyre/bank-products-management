@@ -40,8 +40,10 @@ public class EmployeeRestControllerTest {
         ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/api/bank/employee/add-client/" + clientName ,
                 HttpMethod.PUT, entity, String.class);
 
-        Assertions.assertNotNull(response.getBody());
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
+        Assertions.assertNotNull(response.getBody());
+        Assertions.assertEquals(response.getBody(), "SUCCES");
+
     }
 
     /**
@@ -56,8 +58,9 @@ public class EmployeeRestControllerTest {
         ResponseEntity<String> response = restTemplate.exchange( "http://localhost:9999/api/bank/employee/list-client-products/" + clientName ,
                 HttpMethod.GET, entity, String.class);
 
-        Assertions.assertNotNull(response.getBody());
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
+        //Assertions.assertNotNull(response.getBody());
+
     }
 
 
