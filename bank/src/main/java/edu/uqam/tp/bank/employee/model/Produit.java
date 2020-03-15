@@ -1,13 +1,15 @@
-package edu.uqam.tp.bank.client.model;
+package edu.uqam.tp.bank.employee.model;
 
 public class Produit {
 
     private String idProduit;
     private String description;
+    private Boolean isAutomatique;
 
-    public Produit(String idProduit, String description) {
+    public Produit(String idProduit, String description, Boolean isAutomatique) {
         this.idProduit = idProduit;
         this.description = description;
+        this.isAutomatique = isAutomatique;
     }
 
     public String getIdProduit() {
