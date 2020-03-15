@@ -1,36 +1,41 @@
 package edu.uqam.tp.bank.employee.model;
 
-import org.springframework.data.annotation.Id;
-
+import javax.persistence.Id;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="clients")
-public class BankClient {
+@Access(value= AccessType.FIELD)
+public class Client {
 
     @Id
-    @Column(name = "CLIENT_NAME", nullable = false,columnDefinition="varchar2(40)")
+    @Column(name = "CLIENT_NAME", unique = true, nullable = false, columnDefinition="varchar2(40)")
     private String clientName;
+
+    @ElementCollection
+    @CollectionTable(name = "clients_products", joinColumns = @JoinColumn(name = "CLIENT_NAME"))
     private List<Produit> produits;
 
-    public BankClient() {
+    public Client() {
     }
 
-    public BankClient(String clientName, List<Produit> produits) {
+    public Client(String clientName, List<Produit> produits) {
         this.clientName = clientName;
         this.produits = produits;
     }
 
-    public BankClient(String name) {
+    public Client(String clientName) {
         this.clientName = clientName;
+        this.produits = new ArrayList<>();
     }
 
     public String getName() {
         return clientName;
     }
 
-    public void setName(String name) {
+    public void setName(String clientName) {
         this.clientName = clientName;
     }
 
