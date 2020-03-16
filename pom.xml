@@ -25,6 +25,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<sonar.projectKey>presscorner_bank-products-management</sonar.projectKey>
+        <sonar.organization>presscorner</sonar.organization>
 	</properties>
 
 	<build>
@@ -43,6 +45,28 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<sonar.host.url>https://sonarcloud.io/</sonar.host.url>
+				<sonar.projectName>bank-products-management</sonar.projectName>
+				<sonar.log.level>DEBUG</sonar.log.level>
+				<sonar.verbose>true</sonar.verbose>
+				<sonar.sources>.</sonar.sources>
+                <sonar.java.binaries>${basedir}\\target\\classes</sonar.java.binaries>
+                <sonar.jacoco.reportPath>${basedir}\\target\\jacoco.exec</sonar.jacoco.reportPath>
+				<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+				<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+				<sonar.exclusions>.project,.classpath,**/test/**/*,**/target/**/*</sonar.exclusions>
+				<sonar.coverage.exclusions>**/*.js</sonar.coverage.exclusions>
+				<sonar.java.source>1.8</sonar.java.source>
+			</properties>
+		</profile>
+	</profiles>
 
 
 </project>
