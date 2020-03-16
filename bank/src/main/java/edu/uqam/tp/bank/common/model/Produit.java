@@ -1,4 +1,4 @@
-package edu.uqam.tp.bank.employee.model;
+package edu.uqam.tp.bank.common.model;
 
 import javax.persistence.*;
 
@@ -11,8 +11,15 @@ public class Produit {
     @Column(name = "PRODUCT_ID", unique = true, nullable = false, columnDefinition="varchar2(40)")
     private String idProduit;
 
+    @Column(name = "PRODUCT_DESCRIPTION", unique = false, nullable = true, columnDefinition="varchar2(200)")
     private String description;
-    private Boolean isAutomatique;
+
+    @Column(name = "PRODUCT_AUTO", unique = false, nullable = true, columnDefinition="BOOLEAN DEFAULT TRUE")
+    private Boolean isAutomatique = Boolean.TRUE;
+
+    public Produit() {
+
+    }
 
     public Produit(String idProduit, String description, Boolean isAutomatique) {
         this.idProduit = idProduit;

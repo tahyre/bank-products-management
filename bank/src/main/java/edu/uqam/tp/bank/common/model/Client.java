@@ -1,4 +1,4 @@
-package edu.uqam.tp.bank.employee.model;
+package edu.uqam.tp.bank.common.model;
 
 import javax.persistence.Id;
 import javax.persistence.*;
@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NamedQuery(name = "Client.findByName", query = "SELECT client FROM Client client WHERE LOWER(client.clientName) = LOWER(?1)")
 @Table(name="clients")
 @Access(value= AccessType.FIELD)
 public class Client {
@@ -15,7 +16,7 @@ public class Client {
     private String clientName;
 
     @ElementCollection
-    @CollectionTable(name = "clients_products", joinColumns = @JoinColumn(name = "CLIENT_NAME"))
+    @CollectionTable(name = "clients_produits", joinColumns = @JoinColumn(name = "CLIENT_NAME"))
     private List<Produit> produits;
 
     public Client() {
