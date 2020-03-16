@@ -17,7 +17,7 @@ public class EmployeeAddClientCommand implements Callable<Integer> {
     @CommandLine.Parameters
     private String[] clientName;
 
-    @CommandLine.Option(names = {"--add"}, required = true, description = "créer un client de nom CLIENT_NAME")
+    @CommandLine.Option(names = {"--add"}, description = "créer un client de nom CLIENT_NAME")
     private boolean addClient;
 
     @Override

@@ -26,10 +26,10 @@ public class EmployeeApplication implements CommandLineRunner {
         int exitCode = commandLine.execute(args);
         if (exitCode == 0) {
             log.info(String.format("Le client a été ajouté avec succès. Exit code: %d", exitCode));
-            System.exit(exitCode);
+            //System.exit(exitCode);
         } else {
-            log.error(String.format("La commande d'ajout client a échoué. Exit code: %d", exitCode));
-            System.exit(exitCode);
+            log.warn(String.format("La commande d'ajout client a échoué. Exit code: %d", exitCode));
+            //System.exit(exitCode);
         }
     }
 }
